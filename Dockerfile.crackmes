@@ -1,0 +1,10 @@
+FROM crackenv
+RUN curl https://crackmes.one/static/crackme/5ed3cd9a33c5d449d91ae6b1.zip -o js-on.zip && \
+curl https://crackmes.one/static/crackme/5f05ec3c33c5d42a7c66792b.zip -o simple-overflow.zip && \
+curl https://crackmes.one/static/crackme/5eae2d6633c5d47611746500.zip -o easyaf.zip && \
+curl https://crackmes.one/static/crackme/5e4ec05c33c5d4439bb2dbea.zip -o sh4ll10.1.zip && \
+curl https://crackmes.one/static/crackme/5df26b4033c5d419aa013362.zip -o glowwine.zip && \
+curl https://crackmes.one/static/crackme/5da31ebc33c5d46f00e2c661.zip -o keyg3nme.zip && \
+curl https://crackmes.one/static/crackme/5d41bf7633c5d444ad30189b.zip -o savescooby.zip
+RUN for cr in *.zip ; do mkdir ${cr%.zip} && unzip -P crackmes.one $cr -d ${cr%.zip} && rm $cr ; done
+RUN unzip easyaf/easyAF.zip -d easyaf && rm easyaf/easyAF.zip

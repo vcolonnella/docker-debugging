@@ -1,0 +1,8 @@
+FROM debian:sid
+WORKDIR /home
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install less curl gcc gdb git radare2 zip unzip
+#RUN curl https://radare.mikelloc.com/get/4.5.0-git/radare2_4.5.0-git_amd64.deb -o radare2_4.5.0-git_amd64.deb && \
+#curl https://radare.mikelloc.com/get/4.5.0-git/r2ghidra-dec_4.5.0-git_amd64.deb -o r2ghidra-dec_4.5.0-git_amd64.deb && \
+#dpkg -i radare2_4.5.0-git_amd64.deb r2ghidra-dec_4.5.0-git_amd64.deb && \
+#rm -f radare2_4.5.0-git_amd64.deb r2ghidra-dec_4.5.0-git_amd64.deb
+RUN echo 'set disassembly-flavor intel' > ~/.gdbinit
